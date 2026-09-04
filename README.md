@@ -123,7 +123,7 @@ home-harmony-hub/
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 * **Node.js**: v18.0.0 or higher
