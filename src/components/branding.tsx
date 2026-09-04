@@ -4,25 +4,44 @@ import { cn } from "@/lib/utils";
 
 export function Logo({ className, invert = false }: { className?: string; invert?: boolean }) {
   return (
-    <Link to="/" className={cn("inline-flex items-center gap-2", className)} aria-label="GrihaCare home">
+    <Link
+      to="/"
+      className={cn("inline-flex items-center gap-2", className)}
+      aria-label="GrihaCare home"
+    >
       <span
         className={cn(
           "grid size-9 place-items-center rounded-lg",
-          invert ? "bg-primary-foreground/15 text-primary-foreground" : "bg-primary text-primary-foreground",
+          invert
+            ? "bg-primary-foreground/15 text-primary-foreground"
+            : "bg-primary text-primary-foreground",
         )}
       >
         <Home className="size-5" aria-hidden="true" />
       </span>
-      <span className={cn("text-lg font-extrabold tracking-tight", invert && "text-primary-foreground")}>
+      <span
+        className={cn("text-lg font-extrabold tracking-tight", invert && "text-primary-foreground")}
+      >
         Griha<span className="text-accent">Care</span>
       </span>
     </Link>
   );
 }
 
-export function Stars({ rating, size = 14, className }: { rating: number; size?: number; className?: string }) {
+export function Stars({
+  rating,
+  size = 14,
+  className,
+}: {
+  rating: number;
+  size?: number;
+  className?: string;
+}) {
   return (
-    <span className={cn("inline-flex items-center gap-1", className)} aria-label={`Rated ${rating} out of 5`}>
+    <span
+      className={cn("inline-flex items-center gap-1", className)}
+      aria-label={`Rated ${rating} out of 5`}
+    >
       <span className="flex" aria-hidden="true">
         {[1, 2, 3, 4, 5].map((i) => (
           <Star
@@ -46,7 +65,7 @@ export function Stars({ rating, size = 14, className }: { rating: number; size?:
 
 export function VerifiedBadge({ label = "Verified" }: { label?: string }) {
   return (
-    <span className="inline-flex items-center gap-1 rounded-full bg-success/12 px-2 py-0.5 text-xs font-semibold text-success">
+    <span className="inline-flex items-center gap-1 rounded-full bg-teal-500/15 border border-teal-500/30 px-2 py-0.5 text-xs font-semibold text-teal-400">
       <BadgeCheck className="size-3.5" aria-hidden="true" />
       {label}
     </span>

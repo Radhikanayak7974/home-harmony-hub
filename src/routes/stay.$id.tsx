@@ -16,7 +16,9 @@ export const Route = createFileRoute("/stay/$id")({
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
-      return { meta: [{ title: "Stay unavailable — GrihaCare" }, { name: "robots", content: "noindex" }] };
+      return {
+        meta: [{ title: "Stay unavailable — GrihaCare" }, { name: "robots", content: "noindex" }],
+      };
     }
     const s = loaderData.stay;
     const title = `${s.title} — ${inr(s.price)}/night | GrihaCare Stays`;
@@ -75,13 +77,16 @@ function StayDetail() {
             <p className="mt-6 text-muted-foreground">{s.description}</p>
 
             <ul className="mt-6 grid gap-2 sm:grid-cols-2">
-              {["Free cancellation up to 48 hrs", "Instant confirmation", "Verified host", "Wi-Fi and housekeeping"].map(
-                (t) => (
-                  <li key={t} className="flex items-center gap-2 text-sm">
-                    <Check className="size-4 text-success" aria-hidden="true" /> {t}
-                  </li>
-                ),
-              )}
+              {[
+                "Free cancellation up to 48 hrs",
+                "Instant confirmation",
+                "Verified host",
+                "Wi-Fi and housekeeping",
+              ].map((t) => (
+                <li key={t} className="flex items-center gap-2 text-sm">
+                  <Check className="size-4 text-success" aria-hidden="true" /> {t}
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -89,7 +94,7 @@ function StayDetail() {
             <div className="rounded-xl border bg-card p-5 shadow-card">
               <p className="text-3xl font-extrabold text-primary">
                 {inr(s.price)}
-                <span className="text-sm font-medium text-muted-foreground">/night</span>
+                <span className="text-sm font-medium text-muted-foreground">/month</span>
               </p>
               <p className="mt-2 flex items-center gap-2 text-sm text-muted-foreground">
                 <Users className="size-4" aria-hidden="true" /> Sleeps up to {s.guests}

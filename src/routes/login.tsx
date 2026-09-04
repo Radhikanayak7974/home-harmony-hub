@@ -13,7 +13,10 @@ export const Route = createFileRoute("/login")({
   head: () => ({
     meta: [
       { title: "Log in — GrihaCare" },
-      { name: "description", content: "Log in to GrihaCare to manage rentals, stays, bookings and home services." },
+      {
+        name: "description",
+        content: "Log in to GrihaCare to manage rentals, stays, bookings and home services.",
+      },
       { property: "og:title", content: "Log in — GrihaCare" },
       { property: "og:description", content: "Access your GrihaCare account." },
     ],
@@ -54,7 +57,8 @@ function LoginPage() {
         <div>
           <h2 className="text-4xl font-extrabold leading-tight">Welcome back.</h2>
           <p className="mt-4 max-w-md text-primary-foreground/85">
-            Your saved homes, ongoing bookings and conversations with verified professionals are waiting.
+            Your saved homes, ongoing bookings and conversations with verified professionals are
+            waiting.
           </p>
         </div>
         <p className="text-sm text-primary-foreground/70">One App. Every Home Need.</p>
@@ -66,13 +70,18 @@ function LoginPage() {
             <Logo />
           </div>
           <h1 className="mt-6 text-3xl font-extrabold">Log in</h1>
-          <p className="mt-2 text-sm text-muted-foreground">Use any email and a 6+ character password for the demo.</p>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Use any email and a 6+ character password for the demo.
+          </p>
 
           <form onSubmit={submit} noValidate className="mt-8 space-y-5">
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
               <div className="relative">
-                <Mail className="absolute left-3 top-2.5 size-4 text-muted-foreground" aria-hidden="true" />
+                <Mail
+                  className="absolute left-3 top-2.5 size-4 text-muted-foreground"
+                  aria-hidden="true"
+                />
                 <Input
                   id="email"
                   type="email"
@@ -93,7 +102,10 @@ function LoginPage() {
             <div className="space-y-2">
               <Label htmlFor="password">Password</Label>
               <div className="relative">
-                <Lock className="absolute left-3 top-2.5 size-4 text-muted-foreground" aria-hidden="true" />
+                <Lock
+                  className="absolute left-3 top-2.5 size-4 text-muted-foreground"
+                  aria-hidden="true"
+                />
                 <Input
                   id="password"
                   type={show ? "text" : "password"}

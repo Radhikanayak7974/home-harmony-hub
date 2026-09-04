@@ -1,6 +1,19 @@
 import { type ReactNode } from "react";
 import { Link, useNavigate } from "@tanstack/react-router";
-import { Bell, MessageSquare, LayoutDashboard, Heart, User, CalendarCheck, Star, LogOut, Menu } from "lucide-react";
+import {
+  Bell,
+  MessageSquare,
+  LayoutDashboard,
+  Heart,
+  User,
+  CalendarCheck,
+  Star,
+  LogOut,
+  Menu,
+  Wrench,
+  FileText,
+  Lock,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { Logo } from "@/components/branding";
@@ -10,6 +23,9 @@ import { cn } from "@/lib/utils";
 
 const nav = [
   { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
+  { to: "/agreements", label: "Agreements", icon: FileText },
+  { to: "/agreement/vault", label: "Rental Vault", icon: Lock },
+  { to: "/services", label: "Home Services", icon: Wrench },
   { to: "/booking", label: "Bookings", icon: CalendarCheck },
   { to: "/messages", label: "Messages", icon: MessageSquare },
   { to: "/reviews", label: "Reviews", icon: Star },

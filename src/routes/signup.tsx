@@ -17,7 +17,8 @@ export const Route = createFileRoute("/signup")({
       { title: "Create your account — GrihaCare" },
       {
         name: "description",
-        content: "Sign up free as a home seeker, property owner or service professional on GrihaCare.",
+        content:
+          "Sign up free as a home seeker, property owner or service professional on GrihaCare.",
       },
       { property: "og:title", content: "Create your account — GrihaCare" },
       { property: "og:description", content: "Join GrihaCare in under a minute." },
@@ -40,6 +41,16 @@ function strength(p: string) {
   return s;
 }
 
+type SignupErrors = {
+  name?: string;
+  email?: string;
+  phone?: string;
+  password?: string;
+  confirm?: string;
+  agree?: string;
+  [key: string]: string | undefined;
+};
+
 function SignupPage() {
   const { signIn } = useStore();
   const navigate = useNavigate();
@@ -47,18 +58,19 @@ function SignupPage() {
   const [userType, setUserType] = useState<UserType>("Home Seeker");
   const [agree, setAgree] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [errors, setErrors] = useState<SignupErrors>({});
 
   const set = (k: keyof typeof f) => (e: React.ChangeEvent<HTMLInputElement>) =>
     setF((v) => ({ ...v, [k]: e.target.value }));
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
-    const next: Record<string, string> = {};
+    const next: SignupErrors = {};
     if (f.name.trim().length < 2) next.name = "Please enter your full name.";
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.email)) next.email = "Enter a valid email address.";
     if (!/^[+]?[\d\s-]{10,15}$/.test(f.phone)) next.phone = "Enter a valid phone number.";
-    if (strength(f.password) < 67) next.password = "Use 8+ characters with upper, lower case and a number.";
+    if (strength(f.password) < 67)
+      next.password = "Use 8+ characters with upper, lower case and a number.";
     if (f.confirm !== f.password) next.confirm = "Passwords do not match.";
     if (!agree) next.agree = "Please accept the terms to continue.";
     setErrors(next);
@@ -133,7 +145,9 @@ function SignupPage() {
                     </p>
                   </>
                 ) : null}
-                {errors[k] ? <p className="text-xs font-medium text-destructive">{errors[k]}</p> : null}
+                {errors[k] ? (
+                  <p className="text-xs font-medium text-destructive">{errors[k]}</p>
+                ) : null}
               </div>
             ))}
 
@@ -141,10 +155,13 @@ function SignupPage() {
               <label className="flex items-start gap-2 text-sm">
                 <Checkbox checked={agree} onCheckedChange={(v) => setAgree(v === true)} />
                 <span>
-                  I agree to the Terms of Service and Privacy Policy, including identity verification.
+                  I agree to the Terms of Service and Privacy Policy, including identity
+                  verification.
                 </span>
               </label>
-              {errors.agree ? <p className="mt-1 text-xs font-medium text-destructive">{errors.agree}</p> : null}
+              {errors.agree ? (
+                <p className="mt-1 text-xs font-medium text-destructive">{errors.agree}</p>
+              ) : null}
             </div>
 
             <Button type="submit" size="lg" className="w-full" disabled={loading}>
@@ -163,7 +180,9 @@ function SignupPage() {
       </div>
 
       <div className="gradient-hero hidden flex-col justify-center p-10 text-primary-foreground lg:flex">
-        <h2 className="text-4xl font-extrabold leading-tight">Everything your home needs, in one account.</h2>
+        <h2 className="text-4xl font-extrabold leading-tight">
+          Everything your home needs, in one account.
+        </h2>
         <ul className="mt-8 space-y-4">
           {[
             "AI-ranked rentals with the reasoning shown",

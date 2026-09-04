@@ -1,4 +1,12 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+  type ReactNode,
+} from "react";
 
 export type UserType = "Home Seeker" | "Property Owner" | "Service Professional";
 
@@ -65,16 +73,19 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
     localStorage.removeItem(KEY_USER);
   }, []);
 
-  const toggleSaved = useCallback((id: string) => {
-    let nowSaved = false;
-    setSaved((prev) => {
-      const next = prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id];
-      nowSaved = next.includes(id);
-      localStorage.setItem(KEY_SAVED, JSON.stringify(next));
-      return next;
-    });
-    return !saved.includes(id);
-  }, [saved]);
+  const toggleSaved = useCallback(
+    (id: string) => {
+      let nowSaved = false;
+      setSaved((prev) => {
+        const next = prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id];
+        nowSaved = next.includes(id);
+        localStorage.setItem(KEY_SAVED, JSON.stringify(next));
+        return next;
+      });
+      return !saved.includes(id);
+    },
+    [saved],
+  );
 
   const markRead = useCallback((id: string) => {
     setRead((prev) => {

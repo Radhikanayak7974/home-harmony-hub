@@ -10,18 +10,38 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AgreementsRouteImport } from './routes/agreements'
+import { Route as BookingRouteImport } from './routes/booking'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as MessagesRouteImport } from './routes/messages'
 import { Route as NotificationsRouteImport } from './routes/notifications'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as ReviewsRouteImport } from './routes/reviews'
+import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SignupRouteImport } from './routes/signup'
+import { Route as AgreementIdRouteImport } from './routes/agreement.$id'
+import { Route as AgreementNewRouteImport } from './routes/agreement.new'
+import { Route as AgreementVaultRouteImport } from './routes/agreement.vault'
 import { Route as ProIdRouteImport } from './routes/pro.$id'
 import { Route as PropertyIdRouteImport } from './routes/property.$id'
 import { Route as StayIdRouteImport } from './routes/stay.$id'
+import { Route as AgreementPdfIdRouteImport } from './routes/agreement.pdf.$id'
+import { Route as AgreementRenewIdRouteImport } from './routes/agreement.renew.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgreementsRoute = AgreementsRouteImport.update({
+  id: '/agreements',
+  path: '/agreements',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookingRoute = BookingRouteImport.update({
+  id: '/booking',
+  path: '/booking',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardRoute = DashboardRouteImport.update({
@@ -44,9 +64,39 @@ const NotificationsRoute = NotificationsRouteImport.update({
   path: '/notifications',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReviewsRoute = ReviewsRouteImport.update({
+  id: '/reviews',
+  path: '/reviews',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SignupRoute = SignupRouteImport.update({
   id: '/signup',
   path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgreementIdRoute = AgreementIdRouteImport.update({
+  id: '/agreement/$id',
+  path: '/agreement/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgreementNewRoute = AgreementNewRouteImport.update({
+  id: '/agreement/new',
+  path: '/agreement/new',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgreementVaultRoute = AgreementVaultRouteImport.update({
+  id: '/agreement/vault',
+  path: '/agreement/vault',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProIdRoute = ProIdRouteImport.update({
@@ -64,87 +114,167 @@ const StayIdRoute = StayIdRouteImport.update({
   path: '/stay/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AgreementPdfIdRoute = AgreementPdfIdRouteImport.update({
+  id: '/agreement/pdf/$id',
+  path: '/agreement/pdf/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgreementRenewIdRoute = AgreementRenewIdRouteImport.update({
+  id: '/agreement/renew/$id',
+  path: '/agreement/renew/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/agreements': typeof AgreementsRoute
+  '/booking': typeof BookingRoute
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
   '/messages': typeof MessagesRoute
   '/notifications': typeof NotificationsRoute
+  '/profile': typeof ProfileRoute
+  '/reviews': typeof ReviewsRoute
+  '/services': typeof ServicesRoute
   '/signup': typeof SignupRoute
+  '/agreement/$id': typeof AgreementIdRoute
+  '/agreement/new': typeof AgreementNewRoute
+  '/agreement/vault': typeof AgreementVaultRoute
   '/pro/$id': typeof ProIdRoute
   '/property/$id': typeof PropertyIdRoute
   '/stay/$id': typeof StayIdRoute
+  '/agreement/pdf/$id': typeof AgreementPdfIdRoute
+  '/agreement/renew/$id': typeof AgreementRenewIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/agreements': typeof AgreementsRoute
+  '/booking': typeof BookingRoute
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
   '/messages': typeof MessagesRoute
   '/notifications': typeof NotificationsRoute
+  '/profile': typeof ProfileRoute
+  '/reviews': typeof ReviewsRoute
+  '/services': typeof ServicesRoute
   '/signup': typeof SignupRoute
+  '/agreement/$id': typeof AgreementIdRoute
+  '/agreement/new': typeof AgreementNewRoute
+  '/agreement/vault': typeof AgreementVaultRoute
   '/pro/$id': typeof ProIdRoute
   '/property/$id': typeof PropertyIdRoute
   '/stay/$id': typeof StayIdRoute
+  '/agreement/pdf/$id': typeof AgreementPdfIdRoute
+  '/agreement/renew/$id': typeof AgreementRenewIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/agreements': typeof AgreementsRoute
+  '/booking': typeof BookingRoute
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
   '/messages': typeof MessagesRoute
   '/notifications': typeof NotificationsRoute
+  '/profile': typeof ProfileRoute
+  '/reviews': typeof ReviewsRoute
+  '/services': typeof ServicesRoute
   '/signup': typeof SignupRoute
+  '/agreement/$id': typeof AgreementIdRoute
+  '/agreement/new': typeof AgreementNewRoute
+  '/agreement/vault': typeof AgreementVaultRoute
   '/pro/$id': typeof ProIdRoute
   '/property/$id': typeof PropertyIdRoute
   '/stay/$id': typeof StayIdRoute
+  '/agreement/pdf/$id': typeof AgreementPdfIdRoute
+  '/agreement/renew/$id': typeof AgreementRenewIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/agreements'
+    | '/booking'
     | '/dashboard'
     | '/login'
     | '/messages'
     | '/notifications'
+    | '/profile'
+    | '/reviews'
+    | '/services'
     | '/signup'
+    | '/agreement/$id'
+    | '/agreement/new'
+    | '/agreement/vault'
     | '/pro/$id'
     | '/property/$id'
     | '/stay/$id'
+    | '/agreement/pdf/$id'
+    | '/agreement/renew/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/agreements'
+    | '/booking'
     | '/dashboard'
     | '/login'
     | '/messages'
     | '/notifications'
+    | '/profile'
+    | '/reviews'
+    | '/services'
     | '/signup'
+    | '/agreement/$id'
+    | '/agreement/new'
+    | '/agreement/vault'
     | '/pro/$id'
     | '/property/$id'
     | '/stay/$id'
+    | '/agreement/pdf/$id'
+    | '/agreement/renew/$id'
   id:
     | '__root__'
     | '/'
+    | '/agreements'
+    | '/booking'
     | '/dashboard'
     | '/login'
     | '/messages'
     | '/notifications'
+    | '/profile'
+    | '/reviews'
+    | '/services'
     | '/signup'
+    | '/agreement/$id'
+    | '/agreement/new'
+    | '/agreement/vault'
     | '/pro/$id'
     | '/property/$id'
     | '/stay/$id'
+    | '/agreement/pdf/$id'
+    | '/agreement/renew/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AgreementsRoute: typeof AgreementsRoute
+  BookingRoute: typeof BookingRoute
   DashboardRoute: typeof DashboardRoute
   LoginRoute: typeof LoginRoute
   MessagesRoute: typeof MessagesRoute
   NotificationsRoute: typeof NotificationsRoute
+  ProfileRoute: typeof ProfileRoute
+  ReviewsRoute: typeof ReviewsRoute
+  ServicesRoute: typeof ServicesRoute
   SignupRoute: typeof SignupRoute
+  AgreementIdRoute: typeof AgreementIdRoute
+  AgreementNewRoute: typeof AgreementNewRoute
+  AgreementVaultRoute: typeof AgreementVaultRoute
   ProIdRoute: typeof ProIdRoute
   PropertyIdRoute: typeof PropertyIdRoute
   StayIdRoute: typeof StayIdRoute
+  AgreementPdfIdRoute: typeof AgreementPdfIdRoute
+  AgreementRenewIdRoute: typeof AgreementRenewIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -154,6 +284,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agreements': {
+      id: '/agreements'
+      path: '/agreements'
+      fullPath: '/agreements'
+      preLoaderRoute: typeof AgreementsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/booking': {
+      id: '/booking'
+      path: '/booking'
+      fullPath: '/booking'
+      preLoaderRoute: typeof BookingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dashboard': {
@@ -184,11 +328,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NotificationsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reviews': {
+      id: '/reviews'
+      path: '/reviews'
+      fullPath: '/reviews'
+      preLoaderRoute: typeof ReviewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/signup': {
       id: '/signup'
       path: '/signup'
       fullPath: '/signup'
       preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agreement/$id': {
+      id: '/agreement/$id'
+      path: '/agreement/$id'
+      fullPath: '/agreement/$id'
+      preLoaderRoute: typeof AgreementIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agreement/new': {
+      id: '/agreement/new'
+      path: '/agreement/new'
+      fullPath: '/agreement/new'
+      preLoaderRoute: typeof AgreementNewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agreement/vault': {
+      id: '/agreement/vault'
+      path: '/agreement/vault'
+      fullPath: '/agreement/vault'
+      preLoaderRoute: typeof AgreementVaultRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pro/$id': {
@@ -212,19 +398,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StayIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/agreement/pdf/$id': {
+      id: '/agreement/pdf/$id'
+      path: '/agreement/pdf/$id'
+      fullPath: '/agreement/pdf/$id'
+      preLoaderRoute: typeof AgreementPdfIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agreement/renew/$id': {
+      id: '/agreement/renew/$id'
+      path: '/agreement/renew/$id'
+      fullPath: '/agreement/renew/$id'
+      preLoaderRoute: typeof AgreementRenewIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AgreementsRoute: AgreementsRoute,
+  BookingRoute: BookingRoute,
   DashboardRoute: DashboardRoute,
   LoginRoute: LoginRoute,
   MessagesRoute: MessagesRoute,
   NotificationsRoute: NotificationsRoute,
+  ProfileRoute: ProfileRoute,
+  ReviewsRoute: ReviewsRoute,
+  ServicesRoute: ServicesRoute,
   SignupRoute: SignupRoute,
+  AgreementIdRoute: AgreementIdRoute,
+  AgreementNewRoute: AgreementNewRoute,
+  AgreementVaultRoute: AgreementVaultRoute,
   ProIdRoute: ProIdRoute,
   PropertyIdRoute: PropertyIdRoute,
   StayIdRoute: StayIdRoute,
+  AgreementPdfIdRoute: AgreementPdfIdRoute,
+  AgreementRenewIdRoute: AgreementRenewIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

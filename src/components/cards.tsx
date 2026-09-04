@@ -1,6 +1,18 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ChevronLeft, ChevronRight, Heart, MapPin, BedDouble, Bath, Ruler, Users, CalendarCheck } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Heart,
+  MapPin,
+  BedDouble,
+  Bath,
+  Ruler,
+  Users,
+  CalendarCheck,
+  ShieldCheck,
+  Sparkles,
+} from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -24,7 +36,10 @@ function SaveButton({ id, label }: { id: string; label: string }) {
       aria-label={saved ? `Remove ${label} from wishlist` : `Save ${label} to wishlist`}
       className="grid size-9 place-items-center rounded-full bg-card/90 text-foreground shadow-card backdrop-blur transition-colors hover:bg-card"
     >
-      <Heart className={saved ? "size-4 fill-destructive text-destructive" : "size-4"} aria-hidden="true" />
+      <Heart
+        className={saved ? "size-4 fill-destructive text-destructive" : "size-4"}
+        aria-hidden="true"
+      />
     </button>
   );
 }
@@ -43,7 +58,12 @@ export function PropertyCard({ p }: { p: Property }) {
           className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-x-2 top-2 flex items-start justify-between">
-          <Badge className="bg-card text-foreground shadow-card hover:bg-card">{p.type}</Badge>
+          <div className="flex items-center gap-1.5">
+            <Badge className="bg-card text-foreground shadow-card hover:bg-card">{p.type}</Badge>
+            <Badge className="bg-slate-900/90 text-emerald-400 border border-emerald-500/30 text-[10px] font-extrabold backdrop-blur-md">
+              <ShieldCheck className="size-3 mr-1 text-emerald-400" /> Trust {p.trustScore || 95}/100
+            </Badge>
+          </div>
           <SaveButton id={p.id} label={p.title} />
         </div>
         <div className="absolute inset-x-2 bottom-2 flex items-center justify-between opacity-0 transition-opacity group-hover:opacity-100 focus-within:opacity-100">
@@ -91,10 +111,17 @@ export function PropertyCard({ p }: { p: Property }) {
           </li>
         </ul>
         <div className="flex items-center justify-between border-t pt-3">
-          <p className="text-lg font-extrabold text-primary">
-            {inr(p.price)}
-            <span className="text-xs font-medium text-muted-foreground">/month</span>
-          </p>
+          <div>
+            <p className="text-lg font-extrabold text-primary">
+              {inr(p.price)}
+              <span className="text-xs font-medium text-muted-foreground">/month</span>
+            </p>
+            {p.rentFairness && (
+              <span className="text-[10px] font-bold text-teal-300 flex items-center gap-1 mt-0.5">
+                <Sparkles className="size-2.5 text-teal-400" /> AI {p.rentFairness.status} Rent
+              </span>
+            )}
+          </div>
           <Button asChild size="sm">
             <Link to="/property/$id" params={{ id: p.id }}>
               View details
@@ -135,7 +162,13 @@ export function StayCard({ s }: { s: Stay }) {
           <span className="flex items-center gap-1">
             <Users className="size-4" aria-hidden="true" /> up to {s.guests} guests
           </span>
-          <span className={s.available ? "flex items-center gap-1 text-success" : "flex items-center gap-1 text-destructive"}>
+          <span
+            className={
+              s.available
+                ? "flex items-center gap-1 text-success"
+                : "flex items-center gap-1 text-destructive"
+            }
+          >
             <CalendarCheck className="size-4" aria-hidden="true" />
             {s.available ? "Available" : "Sold out"}
           </span>
@@ -143,9 +176,14 @@ export function StayCard({ s }: { s: Stay }) {
         <div className="flex items-center justify-between border-t pt-3">
           <p className="text-lg font-extrabold text-primary">
             {inr(s.price)}
-            <span className="text-xs font-medium text-muted-foreground">/night</span>
+            <span className="text-xs font-medium text-muted-foreground">/month</span>
           </p>
-          <Button asChild size="sm" variant={s.available ? "default" : "secondary"} disabled={!s.available}>
+          <Button
+            asChild
+            size="sm"
+            variant={s.available ? "default" : "secondary"}
+            disabled={!s.available}
+          >
             <Link to="/stay/$id" params={{ id: s.id }}>
               {s.available ? "Book now" : "View"}
             </Link>
@@ -160,7 +198,12 @@ export function ProCard({ w }: { w: Pro }) {
   return (
     <article className="card-hover rounded-lg border bg-card p-4 shadow-card">
       <div className="flex items-start gap-3">
-        <img src={w.avatar} alt={w.name} loading="lazy" className="size-14 rounded-full object-cover" />
+        <img
+          src={w.avatar}
+          alt={w.name}
+          loading="lazy"
+          className="size-14 rounded-full object-cover"
+        />
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-2">
             <h3 className="text-base font-bold">{w.name}</h3>

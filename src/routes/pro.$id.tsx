@@ -16,7 +16,12 @@ export const Route = createFileRoute("/pro/$id")({
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
-      return { meta: [{ title: "Professional unavailable — GrihaCare" }, { name: "robots", content: "noindex" }] };
+      return {
+        meta: [
+          { title: "Professional unavailable — GrihaCare" },
+          { name: "robots", content: "noindex" },
+        ],
+      };
     }
     const w = loaderData.pro;
     const title = `${w.name} — ${w.service} in ${w.area} | GrihaCare`;
@@ -67,7 +72,8 @@ function ProDetail() {
                   <Stars rating={w.rating} />
                   <span>{w.reviews} reviews</span>
                   <span className="flex items-center gap-1">
-                    <BriefcaseBusiness className="size-4" aria-hidden="true" /> {w.experience} yrs experience
+                    <BriefcaseBusiness className="size-4" aria-hidden="true" /> {w.experience} yrs
+                    experience
                   </span>
                   <span className="flex items-center gap-1">
                     <MapPin className="size-4" aria-hidden="true" /> {w.area}
@@ -150,7 +156,9 @@ function ProDetail() {
 
         {similar.length ? (
           <section className="mt-14">
-            <h2 className="text-2xl font-extrabold">Other {w.category.toLowerCase()} professionals</h2>
+            <h2 className="text-2xl font-extrabold">
+              Other {w.category.toLowerCase()} professionals
+            </h2>
             <div className="mt-6 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
               {similar.map((x) => (
                 <ProCard key={x.id} w={x} />

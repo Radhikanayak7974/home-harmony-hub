@@ -1,5 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Bell, CalendarCheck, MessageSquare, Sparkles, CheckCheck } from "lucide-react";
+import { createFileRoute } from '@tanstack/react-router'
+import { Bell, CalendarCheck, MessageSquare, Sparkles, CheckCheck, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { AppShell } from "@/components/app-shell";
@@ -12,16 +12,19 @@ export const Route = createFileRoute("/notifications")({
   head: () => ({
     meta: [
       { title: "Notifications — GrihaCare" },
-      { name: "description", content: "Booking updates, new messages and fresh AI matches, all in one place." },
+      {
+        name: "description",
+        content: "Booking updates, rental agreements, new messages and fresh AI matches.",
+      },
       { property: "og:title", content: "Notifications — GrihaCare" },
-      { property: "og:description", content: "Stay on top of bookings, messages and AI matches." },
+      { property: "og:description", content: "Stay on top of bookings, agreements, messages and AI matches." },
     ],
   }),
   component: NotificationsPage,
 });
 
-const icons = { Bookings: CalendarCheck, Messages: MessageSquare, Updates: Sparkles } as const;
-const tabs = ["All", "Bookings", "Messages", "Updates"] as const;
+const icons = { Bookings: CalendarCheck, Messages: MessageSquare, Updates: Sparkles, Agreements: FileText } as const;
+const tabs = ["All", "Agreements", "Bookings", "Messages", "Updates"] as const;
 
 function NotificationsPage() {
   const { readNotifications, markRead, markAllRead } = useStore();
@@ -37,7 +40,11 @@ function NotificationsPage() {
             {unread ? `${unread} unread update${unread > 1 ? "s" : ""}` : "You're all caught up."}
           </p>
         </div>
-        <Button variant="outline" onClick={() => markAllRead(notifications.map((n) => n.id))} disabled={!unread}>
+        <Button
+          variant="outline"
+          onClick={() => markAllRead(notifications.map((n) => n.id))}
+          disabled={!unread}
+        >
           <CheckCheck className="mr-2 size-4" /> Mark all read
         </Button>
       </div>
@@ -75,10 +82,19 @@ function NotificationsPage() {
                           <span className="min-w-0 flex-1">
                             <span className="flex items-center gap-2">
                               <span className="text-sm font-bold">{n.title}</span>
-                              {!read ? <span className="size-2 rounded-full bg-accent" aria-label="Unread" /> : null}
+                              {!read ? (
+                                <span
+                                  className="size-2 rounded-full bg-accent"
+                                  aria-label="Unread"
+                                />
+                              ) : null}
                             </span>
-                            <span className="mt-1 block text-sm text-muted-foreground">{n.body}</span>
-                            <span className="mt-1 block text-xs text-muted-foreground">{n.time}</span>
+                            <span className="mt-1 block text-sm text-muted-foreground">
+                              {n.body}
+                            </span>
+                            <span className="mt-1 block text-xs text-muted-foreground">
+                              {n.time}
+                            </span>
                           </span>
                         </button>
                       </li>
@@ -87,7 +103,10 @@ function NotificationsPage() {
                 </ul>
               ) : (
                 <div className="grid">
-                  <EmptyState title="Nothing here yet" body="New updates in this category will show up here." />
+                  <EmptyState
+                    title="Nothing here yet"
+                    body="New updates in this category will show up here."
+                  />
                 </div>
               )}
             </TabsContent>

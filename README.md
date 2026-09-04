@@ -1,284 +1,182 @@
-# Home Harmony Hub
+# 🏡 GrihaCare — Unified Housing & Rental Intelligence Ecosystem
 
-BUILD A MODERN WEBAPP FOR GRIHACARE - "One App. Every Home Need"
+> **One App. Every Home Need.**  
+> GrihaCare is an all-in-one housing ecosystem that combines **11-Month Permanent Rental Agreements**, **AI Rent Fairness Benchmarking**, **GrihaCare Trust Score Audits**, and **Digital Move-In Passports** into a single cryptographic platform.
 
-PROJECT OVERVIEW:
+---
 
-GrihaCare is an AI-powered platform connecting users with:
+## 🌟 Platform Overview
 
-1. HOME RENTALS (find rental properties by location, budget, preferences)
+Renting and managing residential properties in urban India is traditionally plagued by fragmented applications, price opacity, security deposit disputes, and informal lease agreements. 
 
-2. TEMPORARY STAYS (book short-term accommodation)
+**GrihaCare** solves these challenges by providing a transparent, end-to-end platform for home seekers, property owners, and service professionals. From discovering verified properties and auditing rental fairness to executing legally compliant 11-month lease deeds and logging move-in damage condition records into a cryptographic **Rental Vault**, GrihaCare streamlines the entire living lifecycle.
 
-3. VERIFIED HOME SERVICES (connect with electricians, plumbers, cleaners, etc.)
+---
 
-All in one trusted platform with AI-powered personalized matching.
+## ✨ Key USPs & Standout Features
 
-TECHNOLOGY STACK:
+### 1. 📜 11-Month Permanent Rental Deed & Rental Vault
+* **Legally Compliant 11-Month Flow**: Tailored to Indian rent control acts (exempting mandatory registration under Section 17 of the Registration Act, 1908).
+* **Dual Digital Signatures**: Secure, bi-party digital signature workflow for both tenants and landlords with audit timestamps.
+* **Lock-In & Renewal Engine**: Built-in 3-month lock-in rules, notice period tracking, and 1-click 11-month agreement renewal.
+* **🔐 Cryptographic Rental Vault**: Every completed deed generates a unique **SHA-256 cryptographic hash**, storing tamper-proof records for legal dispute protection.
 
-- Next.js 14+ with TypeScript
+### 2. 🛡️ GrihaCare Trust Score (0–100)
+Every property listing undergoes a multi-point verification process resulting in a real-time **Trust Score (0–100)**:
+* **Owner Identity & Aadhaar KYC**: Verified identity proof matching land registry records.
+* **Physical Safety Audit**: 24-point structural, electrical, and safety inspection score.
+* **Document Title Deed Verification**: Authenticity checks on property ownership documents.
+* **Listing Completeness**: High-resolution image verification, exact map coordinates, and amenity accuracy.
 
-- Tailwind CSS for styling
+### 3. 📊 AI Rent Fairness Index
+Powered by market-indexed valuation logic to protect tenants from overpriced rentals and help owners set competitive pricing:
+* **Fairness Indicators**: Instant classification into **Fair**, **Slightly High**, or **High** rent categories.
+* **Hyper-Local Price Range**: Displays estimated market rental ranges (e.g. `₹11,000 – ₹13,000 / mo`) based on locality averages, BHK size, and furnishing status.
+* **Locality Percentile Insights**: Evaluates value proposition against historical rental data in top coaching hubs and IT corridors.
 
-- Lucide React icons
+### 4. 📸 Digital Move-In Passport
+Eliminates end-of-tenancy deposit disputes by capturing a tamper-proof baseline record of the property condition at key handover:
+* **4-Step Inspection Wizard**:
+  1. **Utility Meter Readings**: Logs initial Electricity (kWh) and Water (kL) meter readings with optional photo uploads.
+  2. **Pre-Existing Damage Logs**: Records room location, severity (*Minor, Moderate, Major*), notes, and photo proof.
+  3. **Key & Furniture Inventory Checklist**: Verifies quantity and condition (*Good, Fair, Damaged, Missing*) for appliances, keys, and fixtures.
+  4. **Digital Signature & Cryptographic Seal**: Tenant digital signature locks the record into the **Rental Vault** with a unique SHA-256 hash certificate.
 
-- Use modern, clean design system
+### 5. 🏨 Temporary Stays & Student PGs
+* Flexible short-term bookings for co-living PGs, serviced hostels, and student accommodations.
+* Filters for meal inclusions (3-time mess food), high-speed Wi-Fi, study desks, and proximity to coaching centers.
 
-DESIGN:
+### 6. 🛠️ Verified Home Services & Handymen
+* Connect directly with verified electricians, plumbers, deep cleaners, and appliance technicians.
+* Instant service request dispatch with rating histories, transparent hourly rates, and verification badges.
 
-- Primary Color: Deep Blue (#1E40AF)
+---
 
-- Secondary: Teal (#06B6D4)
+## 🏗️ System Architecture & Technology Stack
 
-- Accent: Orange (#F97316)
+GrihaCare is engineered with a modern, high-performance TypeScript stack featuring server-side rendering, type-safe data loading, and glassmorphic UI aesthetics.
 
-- Modern, minimalist, trustworthy aesthetic
-
-- Fully responsive (mobile-first)
-
-- Smooth animations and transitions
-
-PAGES REQUIRED:
-
-1. LANDING PAGE (Before Login)
-
-   - Hero: "One App. Every Home Need" with signup CTA
-
-   - Show problem: Fragmented home needs across multiple apps
-
-   - Show solution: Three features (Homes, Stays, Services) with icons
-
-   - User journey flow: Sign Up → Search → AI Match → Connect → Book & Pay → Review
-
-   - Key benefits: AI Personalization, Trust & Verification, One Ecosystem
-
-   - Target users: Renters, Property Owners, Service Professionals
-
-2. AUTHENTICATION PAGES
-
-   - SIGN UP: Full name, email, phone, password, user type selector (Home Seeker/Property Owner/Service Professional)
-
-   - LOGIN: Email, password, forgot password link, remember me
-
-   - OTP VERIFICATION: 6-digit OTP input with resend timer
-
-   - Add real-time validation, password strength indicator
-
-3. MAIN DASHBOARD (After Login)
-
-   - Top navigation: Logo, search bar, location filter, notifications bell, messages, profile menu
-
-   - Greeting section with quick stats (Saved Properties, Active Bookings, Messages, Reviews)
-
-   - Three switchable sections:
-
-   SECTION A: FIND A HOME (Rentals)
-
-   - Search filters: Location, Budget slider, Property type, Amenities, Date picker
-
-   - Grid of property cards (3 columns responsive) showing: Image carousel, Location, Price/month, Rating, Type, Description, Wishlist heart, View Details button
-
-   - Pagination
-
-   SECTION B: BOOK A STAY
-
-   - Search filters: Destination, Check-in date, Check-out date, Guests count
-
-   - Grid of stay cards showing: Image, Location, Price/night, Rating, Availability, Book Now button
-
-   SECTION C: FIND SERVICES
-
-   - Category filter chips: Electrical, Plumbing, Cleaning, Maintenance, Construction, Interior Design
-
-   - Service type search, Location, Budget range filters
-
-   - Service worker cards showing: Profile picture, Name, Service type, Rating, Service area, Price range, Verification badge, Bio, View Profile button
-
-   AI RECOMMENDATIONS CAROUSEL: Show personalized recommendations with reasoning
-
-   RECENT BOOKINGS: Table showing booking type, date, status, action buttons
-
-   SAVED ITEMS: Tabs for Saved Homes, Stays, Services
-
-4. PROPERTY DETAIL PAGE
-
-   - Large image carousel (5+ images, thumbnails)
-
-   - Key info bar: Price, rating, location, availability
-
-   - Tabs: Overview, Photos, Reviews, Map, Owner Profile
-
-   - Sidebar: Price breakdown, Availability calendar, Book Now button, Save to Wishlist, Share
-
-   - Reviews section with sorting and filtering
-
-5. SERVICE WORKER DETAIL PAGE
-
-   - Profile hero: Image, name, service type, location, rating, verification badge, experience
-
-   - Tabs: About, Portfolio, Reviews, Pricing, Availability calendar
-
-   - Sidebar: Contact info, Request Service button, Message button, Save, Share
-
-   - Reviews with photos
-
-6. CHAT/MESSAGING PAGE
-
-   - Left sidebar: Chat list with avatars, names, last message, unread badges
-
-   - Main chat window: Contact name, status, messages with timestamps and read receipts
-
-   - Message input with emoji picker and attachment icon, send button
-
-7. USER PROFILE PAGE
-
-   - Profile header: Picture, name, user type badge, member since, verification badge
-
-   - Tabs:
-
-     * My Information: Name, email, phone, bio, address (editable)
-
-     * My Bookings: Current/Past/Cancelled tabs with booking cards and actions
-
-     * My Wishlist: Saved items with remove option
-
-     * Reviews: Received reviews and ratings
-
-     * My Properties (if owner): List of properties with status, bookings, rating, edit option
-
-     * My Services (if professional): Services offered with edit and add new buttons
-
-     * Settings: Notifications, privacy, password change, deactivate account
-
-8. BOOKING/PAYMENT PAGE
-
-   - Multi-step form: Confirm Details → Special Requests → Payment Information → Confirmation
-
-   - Show price breakdown (base, taxes, fee, total)
-
-   - Payment method selection (Card, UPI, Wallet)
-
-   - Coupon code field
-
-   - Confirm Booking and Pay button
-
-   - Success confirmation with booking number, receipt download, share option
-
-9. REVIEWS PAGE
-
-   - Write review form: Star rating, title, content, photo upload, submit button
-
-   - Reviews list: Filter by rating, sort by newest/helpful, review cards with helpful votes
-
-10. NOTIFICATIONS CENTER
-
-    - Bell icon dropdown/modal with tabs: All, Bookings, Messages, Updates
-
-    - Notification cards with timestamps, mark as read, delete
-
-    - View All Notifications link
-
-INTERACTIVE FEATURES:
-
-✓ Real-time search with autocomplete
-
-✓ Dynamic filter updates with chip display
-
-✓ AI matching/recommendations with reasoning
-
-✓ Verification badges on trusted profiles
-
-✓ Real-time chat with typing indicator and read receipts
-
-✓ 5-star rating system with individual reviews
-
-✓ Wishlist/save functionality with heart icons
-
-✓ Payment integration UI ready (Stripe)
-
-✓ Responsive design (mobile, tablet, desktop)
-
-✓ Loading states and skeleton loaders
-
-✓ Error handling and empty states
-
-✓ Form validation with real-time feedback
-
-✓ Toast notifications for success/error messages
-
-SAMPLE DATA:
-
-- 8-10 properties (1BHK-3BHK, villas, studios) with images, ₹15K-75K/month
-
-- 8-10 stays (hotels, homestays, hostels) with images, ₹1.5K-8K/night
-
-- 10-12 service workers (different categories) with images, verified badge, ₹500-5000 per service
-
-- Mix of ratings (3.5-5 stars) with sample reviews
-
-- Sample user profiles and chat histories
-
-ACCESSIBILITY:
-
-- WCAG 2.1 AA compliant
-
-- Semantic HTML, proper alt text
-
-- Keyboard navigation, visible focus indicators
-
-- Color contrast ≥ 4.5:1
-
-- Mobile-friendly text sizes
-
-STYLING NOTES:
-
-- Modern cards with 8px rounded corners
-
-- Subtle shadows and hover effects
-
-- Consistent 8px grid spacing
-
-- Smooth transitions (0.3s ease)
-
-- Use Tailwind utilities for everything
-
-- Mobile-first responsive approach
-
-IMPORTANT:
-
-- Make it modern and professional looking
-
-- All forms must have proper validation
-
-- Implement smooth animations
-
-- Test on all device sizes
-
-- Ensure fast load times
-
-- Add loading states for all async operations
-
-- Implement proper error boundaries
-
-This is everything needed to build a complete, modern GrihaCare website with login, dashboard, and all features. Copy this entire prompt to Lovable for best results!
-
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/7ab56ef9-db4e-480c-a192-95987fff55a7).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
 ```
+                    ┌────────────────────────────────────────┐
+                    │            Client Browser              │
+                    │   (React 19 + TanStack Router + UI)    │
+                    └──────────────────┬─────────────────────┘
+                                       │
+                                       ▼
+                    ┌────────────────────────────────────────┐
+                    │      TanStack Start Server Engine      │
+                    │    (SSR + Server Functions Layer)      │
+                    └───┬────────────────────────────────┬───┘
+                        │                                │
+                        ▼                                ▼
+       ┌────────────────────────────────┐ ┌────────────────────────────────┐
+       │   Agreements & Vault Engine    │ │    Properties & Trust Audit    │
+       │ (11-Mo Lease + Move-In Passport)│ │ (Trust Score + AI Rent Fair)   │
+       └────────────────────────────────┘ └────────────────────────────────┘
+```
+
+| Layer | Technology | Description |
+| :--- | :--- | :--- |
+| **Frontend Framework** | **React 19** | Modern UI engine utilizing reactive hooks and server-rendered components. |
+| **Routing & SSR** | **TanStack Router / TanStack Start** | File-based type-safe routing, SSR page loaders, and head meta management. |
+| **Styling & Design** | **Tailwind CSS v4 + Lucide Icons** | Custom glassmorphism dark theme tokens (`styles.css`), responsive layouts, and modern typography. |
+| **State Management** | **Zustand + React Hooks** | Centralized user session, active state persistence, and notification queues. |
+| **Server Logic** | **TanStack Server Functions** | Type-safe server actions (`src/api/agreements.ts`, `src/server/api/`). |
+| **Utilities** | **Date-fns, Sonner** | Date mathematics for 11-month lease cycles and toast notifications. |
+
+---
+
+## 📁 Repository Directory Structure
+
+```
+home-harmony-hub/
+├── src/
+│   ├── api/                     # Type-safe server functions
+│   │   ├── agreements.ts        # 11-Month lease & Move-In Passport backend handlers
+│   │   └── properties.ts        # Property data & search handlers
+│   ├── components/              # Core reusable UI components
+│   │   ├── app-shell.tsx        # Responsive navigation & global layout header/footer
+│   │   ├── branding.tsx         # Verified badges, trust seals & rating stars
+│   │   ├── cards.tsx            # Property Cards with Trust Score & AI Fair Rent badges
+│   │   ├── passport-modal.tsx   # 4-Step Digital Move-In Passport inspection modal
+│   │   └── ui/                  # Primitives (Buttons, Badges, Inputs, Dialogs, Tabs)
+│   ├── lib/
+│   │   ├── app-store.ts         # Zustand user state & authentication store
+│   │   └── data.ts              # Domain types (RentalAgreement, MoveInPassport, Property)
+│   ├── routes/                  # TanStack File-Based Route Tree
+│   │   ├── index.tsx            # High-conversion Landing Page
+│   │   ├── dashboard.tsx        # Main Search Dashboard (Homes, Stays, Services)
+│   │   ├── property.$id.tsx     # Property Detail page (Trust Audit & Rent Fairness)
+│   │   ├── agreement.new.tsx    # 11-Month Permanent Lease Creation Form
+│   │   ├── agreement.$id.tsx    # Digital Deed Execution & Audit Trail
+│   │   ├── agreement.vault.tsx  # Rental Vault (Lease Deeds + Move-In Passports)
+│   │   ├── booking.tsx          # Temporary Stay & Visit Scheduling
+│   │   ├── messages.tsx         # Real-time In-App Messaging
+│   │   └── profile.tsx          # User Profile & Activity Hub
+│   ├── server/                  # API server routes & RPC handlers
+│   ├── styles.css               # Tailored CSS variables, gradients, and custom utility classes
+│   └── routeTree.gen.ts         # Auto-generated TanStack router tree
+├── package.json
+├── tsconfig.json
+└── vite.config.ts
+```
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+* **Node.js**: v18.0.0 or higher
+* **npm**: v9.0.0 or higher
+
+### Installation & Local Setup
+
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/your-username/grihacare.git
+   cd grihacare
+   ```
+
+2. **Install Dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start the Development Server**
+   ```bash
+   npm run dev
+   ```
+   *The application will launch on `http://localhost:8081` (or `http://localhost:8080`).*
+
+4. **Verify TypeScript Type Safety**
+   ```bash
+   npx tsc --noEmit
+   ```
+
+5. **Build for Production**
+   ```bash
+   npm run build
+   ```
+
+---
+
+## 🔒 Security & Cryptographic Proofs
+
+Every document created on GrihaCare is assigned a deterministic cryptographic signature hash computed over:
+* Contracting Party Identities (Tenant & Owner Aadhaar/PAN metadata)
+* Legal Lease Clauses (Rent, Deposit, Tenure, Lock-in)
+* Initial Condition Artifacts (Meter readings, damage logs, inventory checklist)
+
+This ensures that neither party can unilaterally alter agreement terms or claim unrecorded damages upon move-out.
+
+---
+
+## 📄 License
+
+Distributed under the **MIT License**. See `LICENSE` for more information.
+
+---
+
+<p align="center">
+  <b>GrihaCare</b> — Reimagining Residential Renting in India.
+</p>
